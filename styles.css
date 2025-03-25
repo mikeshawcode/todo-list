@@ -1,79 +1,80 @@
 /* Basic Styling for the Page */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  text-align: center;
-  padding: 20px;
+  font-family: Arial, sans-serif; /* Sets the text font */
+  background-color: #f5f5f5; /* Light gray background */
+  text-align: center; /* Centers text on the page */
+  padding: 20px; /* Adds space around the content */
 }
 
 /* Style for the Main Heading */
 h1 {
-    color: #333;
+    color: #333; /* Dark gray text */
 }
 
 /* Form Styling */
 form {
-    margin: 20px auto;
-    max-width: 300px;
-    padding: 15px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;  /* Centers the form */
+    max-width: 300px; /* Limits form width */
+    padding: 15px; /* Adds space inside the form */
+    background: white; /* White background */
+    border-radius: 10px; /* Rounds the form corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds shadow effect */
 }
 
 /* Input Field */
 input[type="text"] {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 90%; /* Makes input field almost full width */
+    padding: 10px; /* Adds space inside */
+    margin: 10px 0; /* Adds space around input */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounds input field corners */
 }
 
 /* Button Styling */
 button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Adds space inside button */
+    border: none; /* Removes default border */
+    border-radius: 5px; /* Rounds button corners */
+    cursor: pointer; /* Shows hand cursor on hover */
+    transition: 0.3s; /* Smooth hover effect */
     outline: none;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue when hovering */
 }
 
 /* Task List */
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 300px;
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 20px auto; /* Centers the list */
+    max-width: 300px; /* Limits list width */
 }
 
 /* Individual Task Items */
 li {
-    background: white;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
+    background: white; /* White background for each task */
+    padding: 10px; /* Adds space inside */
+    margin: 5px 0; /* Adds space between tasks */
+    border-radius: 5px; /* Rounds task box corners */
+    display: flex; /* Aligns text and delete button */
+    justify-content: space-between; /* Spreads items apart */
+    align-items: center; /* Centers content vertically */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow */
+    transition: 0.3s; /* Smooth hover effect */
 }
 
+/* Task Hover Effect */
 li:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Slightly enlarges task */
 }
 
 /* Delete Task on Click */
 li.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+    text-decoration: line-through; /* Crosses out completed tasks */
+    opacity: 0.6; /* Makes them faded */
 }
   
