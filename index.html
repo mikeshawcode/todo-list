@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Defines the document type as HTML5 -->
+  <meta charset="UTF-8"> <!-- Sets the character encoding to support all text formats -->
+  <meta name = "viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the page responsive for all screen sizes -->
+  
+  <title>AI To-Do List</title> <!-- The title of the webpage (appears in the browser tab) -->
+
+    <!-- Links an external CSS file (styles.css) to style the page -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <!-- Main Heading of the page -->
+  <h1> AI To-Do List</h1>
+
+      <!-- Form for adding a new task -->
+  <form id="todoForm">
+      <!-- Label for the input field -->
+    <label for="task">New Task:</label><br>
+    
+      <!-- Text input field for entering a new task -->
+    <input type="text" id="task" required><br><br>
+      <!-- Button to submit the form and add the task -->
+    <button type="submit">Add Task</button>
+  </form>
+
+    <!-- Subheading for the task list -->
+  <h2>Your Tasks</h2>
+    <!-- Unordered list where tasks will be dynamically added using JavaScript -->
+  <ul id="todoList">
+    <!-- List of task will be appended here -->
+  </ul>
+
+    <!-- Links an external JavaScript file (script.js) to handle task functionality -->
+  <script src="script.js"></script>
+</body>
+</html>
