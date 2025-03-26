@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
   todoForm.appendChild(suggestButton); // Add button to form
 
   // Event listener for suggestion button
-  suggestButton.addeventListener("click",async function () {
+  suggestButton.addEventListener("click",async function () {
       const suggestedTask = await suggestTask();
       if (suggestedTask) {
           addTask(suggestedTask);
@@ -52,11 +52,11 @@ async function suggestTask() {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}
+                "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: "text-davinci-003",
-                prompr: prompt,
+                prompt: prompt,
                 max_tokens: 20
             })
       });
@@ -64,7 +64,7 @@ async function suggestTask() {
       const data = await response.json();
       return data.choices[0].text.trim();
   } catch (error) {
-      console.error("Error fetchign AI suggestion:", error);
+      console.error("Error fetching AI suggestion:", error);
       return null;
   }
 }
