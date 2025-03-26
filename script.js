@@ -26,6 +26,49 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   });
 
+  // Add AI suggestion Button
+  const suggestButton = document.createElement("button");
+  suggestButton.textContent = "Suggest a Task";
+  suggestButton.style.marginTop = "10px"; // Add space for styling
+  todoForm.appendChild(suggestButton); // Add button to form
+
+  // Event listener for suggestion button
+  suggestButton.addeventListener("click",async function () {
+      const suggestedTask = await suggestTask();
+      if (suggestedTask) {
+          addTask(suggestedTask);
+          saveTask(suggestedTask);
+      }
+  });
+});
+
+//Function to get AI-suggested task
+async function suggestTask() {
+    const apiKey = "YOUR_OPENAI_API_KEY"; //replace with your openAI key
+    const prompt = "Suggest a simple daily to-do task";
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}
+            },
+            body: JSON.stringify({
+                model: "text-davinci-003",
+                prompr: prompt,
+                max_tokens: 20
+            })
+      });
+
+      const data = await response.json();
+      return data.choices[0].text.trim();
+  } catch (error) {
+      console.error("Error fetchign AI suggestion:", error);
+      return null;
+  }
+}
+  
   //Function to add a new task to the list
   function addTask(taskText) {
           // Create a new list item <li> for the task
