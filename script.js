@@ -34,40 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for suggestion button
   suggestButton.addEventListener("click",async function () {
-      const suggestedTask = await suggestTask();
-      if (suggestedTask) {
-          addTask(suggestedTask);
-          saveTask(suggestedTask);
+      try {
+          const response = await fetch("http://localhost:3000/suggest-task", {
+              method: "POST",
+              headers: { "Content-TYPE": "application/json" }
+          });
+
+          const data = await response.json();
+          if (data.task) {
+              addTask(data.task); // Add suggested task to the list
+              saveTask(data.task); // Save it in local storage
+          }
+      } catch (error) {
+          console.error("Error fetching suggested task:",error);
       }
   });
-});
-
-//Function to get AI-suggested task
-async function suggestTask() {
-    const apiKey = "YOUR_OPENAI_API_KEY"; //replace with your openAI key
-    const prompt = "Suggest a simple daily to-do task";
-
-    try {
-        const response = await fetch("https://api.openai.com/v1/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`
-            },
-            body: JSON.stringify({
-                model: "text-davinci-003",
-                prompt: prompt,
-                max_tokens: 20
-            })
-      });
-
-      const data = await response.json();
-      return data.choices[0].text.trim();
-  } catch (error) {
-      console.error("Error fetching AI suggestion:", error);
-      return null;
-  }
-}
   
   //Function to add a new task to the list
   function addTask(taskText) {
@@ -84,10 +65,8 @@ async function suggestTask() {
 
           // Append (add) the new task to the <ul> task list
           todoList.appendChild(taskItem);
-
-          // Clear the input field after adding the task
-          taskInput.value = "";
   }
+  
   // Function to save task to Local Storage
   function saveTask(taskText) {
       let tasks = JSON.parse(localStorage.getItem("tasks")) || []; // Get existing tasks
