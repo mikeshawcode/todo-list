@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault(); // Prevents default behavior
     
       try {
-          const response = await fetch("http://expert-halibut-69w4g5jgvpq5c7jj-3000.app.github.dev/suggest-task", {
+          const response = await fetch("https://expert-halibut-69w4g5jgvpq5c7jj-3000.app.github.dev/suggest-task", {
               method: "POST",
               headers: { "Content-Type": "application/json" }
           });
