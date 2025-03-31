@@ -30,10 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const suggestButton = document.createElement("button");
   suggestButton.textContent = "Suggest a Task";
   suggestButton.style.marginTop = "10px"; // Add space for styling
+  suggestButton.type = "button"; // Prevents it from submitting the form
   todoForm.appendChild(suggestButton); // Add button to form
 
   // Event listener for suggestion button
-  suggestButton.addEventListener("click",async function () {
+  suggestButton.addEventListener("click",async function (event) {
+      event.preventDefault(); // Prevents default behavior
+    
       try {
           const response = await fetch("http://localhost:3000/suggest-task", {
               method: "POST",
